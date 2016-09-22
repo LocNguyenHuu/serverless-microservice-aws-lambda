@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Microservice Sample Website</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="apiGateway-js-sdk/lib/axios/dist/axios.standalone.js"></script>
+	<script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+	<script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/rollups/sha256.js"></script>
+	<script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/components/hmac.js"></script>
+	<script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/components/enc-base64.js"></script>
+	<script type="text/javascript" src="apiGateway-js-sdk/lib/url-template/url-template.js"></script>
+	<script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/sigV4Client.js"></script>
+	<script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/apiGatewayClient.js"></script>
+	<script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/simpleHttpClient.js"></script>
+	<script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/utils.js"></script>
+	<script type="text/javascript" src="apiGateway-js-sdk/apigClient.js"></script>
+</head>
+<body>
+<h2>Microservice Sample Website</h2>
+<span class="dataEntryTitle">Value</span> 
+<span class="dataEntry">
+	<form action="javascript:alert( 'Unhandled issue!' );">
+	  <div>
+		<input type="text" value="Some Sample Value">
+		<input type="submit">
+	  </div>
+	</form>
+	<p>
+		<a href="">Project Homepage</a>
+	</p>
+</span>
+<span class="status" name="status"></span>
+
+<div class="vehicleDecodeResult">
+    <div class="title">Race Results:</div>
+	<div class="row1">
+		<span class="description">Position:&emsp;</span>   
+		<span class="value" name="vin">tbd</span>
+    </div>
+	<div class="row2">
+		<span class="description">Class:&emsp;</span>   
+		<span class="value" name="year">tbd</span>
+    </div>
+	<div class="row1">
+		<span class="description">Team:&emsp;</span>   
+		<span class="value" name="make">tbd</span>
+    </div>
+	<div class="row2">
+		<span class="description">Driver:&emsp;</span>   
+		<span class="value" name="model">tbd</span>
+    </div>
+	<div class="row1">
+		<span class="description">Chassis:&emsp;</span>   
+		<span class="value" name="style">tbd</span>
+    </div>
+	<div class="row2">
+		<span class="description">Engine:&emsp;</span>   
+		<span class="value" name="trim">tbd</span>
+    </div>
+	<div class="row1">		 
+		<span class="value" id="stockphoto"><img src="" /></span>		
+    </div>
+</div>
+<script>
+
+$( "form" ).submit(function( event ) {
+
+
+  //if ( $( "input:first" ).val() === "correct" ) {
+	$('span[name=status]').text( "Decoding..." ).show();
+  //  return;
+  //}
+  
+  makeAwsCall();
+
+	alert("Decoding....");
+  $('span[name=status]').text( "" ).show();
+  
+  event.preventDefault();
+});
+
+function makeAwsCall(){	
+	//var apigClient = apigClientFactory.newClient();
+	
+	var params = {
+	  // This is where any modeled request parameters should be added. 
+	  // The key is the parameter name, as it is defined in the API in API Gateway.
+	  vehicleId: $( "input:first" ).val() //'WP0CB2A95BS754907'
+	};
+
+	var body = {
+	  // This is where you define the body of the request,
+	};
+
+	var additionalParams = {
+	  // If there are any unmodeled query parameters or headers that must be 
+	  //   sent with the request, add them here.
+	  headers: {
+		//param0: '',
+		//param1: ''
+	  },
+	  queryParams: {
+		//param0: '',
+		//param1: ''
+	  }
+	};
+	
+	/* initialize the API Gateway-generated SDK with AWS credentials  */
+	//var apigClient = apigClientFactory.newClient({
+	//  accessKey: 'accessKey',
+	//  secretKey: 'secretKey',
+	//});	
+	
+	/* Pass the API key as a parameter to the Factory object */
+	var apigClient = apigClientFactory.newClient({
+	  apiKey: 'UGRWEaZBRm95Hug6Frdfm4KVZyZ6d24Ha42YCsuo'
+	});
+
+	apigClient.vehicleDecodeVehicleIdGet(params, body, additionalParams)
+		.then(function(result){
+		  // Add success callback code here. 
+		  var vehicleDecode = JSON.parse(result.data);
+		  
+		  console.log(result.data);
+
+		  $('span[name=vin]').text(vehicleDecode.id).show();	
+		  $('span[name=year]').text(vehicleDecode.year).show();	
+		  $('span[name=make]').text(vehicleDecode.make).show();	
+		  $('span[name=model]').text(vehicleDecode.model).show();	
+		  $('span[name=style]').text(vehicleDecode.styleId).show();	
+		  $('span[name=style]').text(vehicleDecode.styleName).show();	
+		  $('span[name=trim]').text(vehicleDecode.trimName).show();	
+		  $('#stockphoto img').attr("src",vehicleDecode.stockImageUrl);
+		  //$( "span" ).text(decodedVin).show()		  
+		  
+		}).catch( function(result){
+		  // Add error callback code here.
+		  //alert(result.data);		  
+			$('span[name=status]').text( "Vehicle decode failed!!" ).show().fadeOut( 3000 );
+		});	
+
+}
+
+function makeACall(){
+    var divToBeWorkedOn = "#AjaxPlaceHolder";
+    var webMethod = "https://at8xtwbdc0.execute-api.us-east-1.amazonaws.com/dev";
+    var parameters = ""//"{'sDate':'" + sDate + "','eDate':'" + eDate + "'}";
+
+    $.ajax({
+        type: "POST",
+        url: webMethod,
+        data: parameters,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(msg) {
+            $(divToBeWorkedOn).html(msg.d);
+        },
+        error: function(e){
+            $(divToBeWorkedOn).html("Unavailable");
+        }
+    });
+}
+</script>
+ 
+</body>
+</html>

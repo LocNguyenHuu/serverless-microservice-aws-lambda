@@ -1,0 +1,50 @@
+{
+  "name": "sample-lambda",
+  "version": "1.0.0",
+  "description": "A sample AWS Lambda function that provides microservice logic to API Gateway.",
+  "main": "sample-lambda.js",
+  "dependencies": {
+    "bluebird": "^3.4.1",
+    "jquery": "^2.2.3",
+    "request": "^2.72.0",
+    "xmldom": "^0.1.22"
+  },
+  "devDependencies": {
+    "aws-lambda-mock-context": "^3.0.0",
+    "aws-sdk": "^2.4.6",
+    "chai": "^3.5.0",
+    "dotenv": "^2.0.0",
+    "grunt": "~0.4.2",
+    "grunt-aws-lambda": "0.13.0",
+    "grunt-pack": "0.1.*",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-simple-mocha": "~0.4.0",
+    "gulp": "~3.3.0",
+    "gulp-concat": "~2.1.7",
+    "gulp-jshint": "~1.3.4",
+    "gulp-mocha": "~0.3.0",
+    "gulp-uglify": "~0.1.0",
+    "mocha-jenkins-reporter": "^0.2.6",
+    "npm": "^2.8.3"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/n/a.git"
+  },
+  "keywords": [
+    "decode",
+    "vehicle"
+  ],
+  "author": "Brian Austin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/n/a/issues"
+  },
+  "homepage": "https://github.com/n/a#readme"
+}

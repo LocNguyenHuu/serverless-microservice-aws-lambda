@@ -1,0 +1,11 @@
+{
+  "name": "sample-web",
+  "version": "1.0.0",
+  "description": "The sample-website allows you to invoke the web methods of the REST/JSON microservice.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

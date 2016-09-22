@@ -1,0 +1,32 @@
+============================================
+Name: sample-dynamodb
+Description:
+  The sample-dynamodb is a Node.Js scripted
+  interface with a local version of
+  DynamoDb. It can be used to create and
+  setup AWS DynamoDb by changing the connection
+  information.
+============================================
+
+=================
+Local Dev
+=================
+
+-------
+Local DynamoDb
+-------
+
+- Download DynamoDb Local -
+http://dynamodb-local.s3-website-us-west-2.amazonaws.com/dynamodb_local_latest.zip
+
+- Run DynamoDb on your local machine -
+java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
+
+- DynamoDb JavaScript Shell -
+http://localhost:8000/shell/
+
+-------
+NodeJs Scripted Setup
+-------
+
+node index {command}

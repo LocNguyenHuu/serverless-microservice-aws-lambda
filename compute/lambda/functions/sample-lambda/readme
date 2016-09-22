@@ -1,0 +1,21 @@
+============================================
+Name: sample-lambda
+Description: 
+  The sample-lambda function returns a mock
+  object for use when setting up API Gateway
+  methods.
+============================================
+
+=================
+Local Dev
+=================
+
+-----
+Install lambda-local
+-----
+npm install -g lambda-local@0.0.9
+
+-----
+Execute lambda via command line
+-----
+lambda-local  -l sample-lambda.js -e event.json

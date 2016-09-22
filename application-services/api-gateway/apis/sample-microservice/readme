@@ -1,0 +1,17 @@
+============================================
+Name: sample-microservice
+Description:
+  The sample-microservice is a Swagger
+  definition based API that provides
+  service via a connected AWS lambda function.
+============================================
+
+=================
+Local Dev
+=================
+
+-------
+Use Swagger Editor
+-------
+
+http://editor.swagger.io/#/

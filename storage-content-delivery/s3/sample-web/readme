@@ -1,0 +1,37 @@
+============================================
+Name: sample-web
+Description: 
+  The sample-website allows you to invoke
+  the web methods of the REST/JSON
+  microservice.
+============================================
+
+=================
+Local Dev
+=================
+
+-------
+Project Setup:
+-------
+You need to generate your own apigClient.js and add your AWS credentials.
+
+
+-------
+Use Node Server"
+-------
+Execute "node server" to launch website from the src directory.
+
+
+=================
+S3 Deployment
+=================
+-------
+Push All Files
+-------
+deploy.bat push
+
+-------
+Sync Updates Only
+-------
+deploy.bat sync
+

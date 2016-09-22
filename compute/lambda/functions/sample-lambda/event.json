@@ -1,0 +1,13 @@
+{
+	"testDescription": "Invoke sample lambda",
+	"stagevariables" : {
+	  "lambdaAlias" : "dev"
+		},
+		"body-json" : {
+			"sampleProperty1": "sampleValue1",
+			"sampleProperty2": "sampleValue2"
+		},
+		"headers" : {
+			"CustomHeaderKey": "TEST"
+		}
+}
