@@ -5,4 +5,4 @@ env:
   - TEST_DIR=compute/lambda/functions/sample-lambda
 before_script:
   - npm install -g gulp
-script: cd $TEST_DIR && gulp
+script: cd $TEST_DIR && npm test
