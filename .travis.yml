@@ -4,5 +4,5 @@ node_js:
 env:
   - TEST_DIR=compute/lambda/functions/sample-lambda
 before_script:
-  - npm install 
-script: cd $TEST_DIR && npm test
+  - npm install
+script: cd $TEST_DIR && npm install && npm test
