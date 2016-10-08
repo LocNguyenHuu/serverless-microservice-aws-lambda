@@ -1,6 +1,8 @@
 language: node_js
 node_js:
   - "4.3"
+env:
+  - TEST_DIR=compute/lambda/functions/sample-lambda
 before_script:
   - npm install -g gulp
-script: gulp
+script: cd $TEST_DIR && gulp
