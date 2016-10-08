@@ -1,6 +1,14 @@
 language: node_js
 node_js:
-  - "4.3"
+- '4.3'
 env:
-  - TEST_DIR=compute/lambda/functions/sample-lambda
+- TEST_DIR=compute/lambda/functions/sample-lambda
 script: cd $TEST_DIR && npm install && npm test
+deploy:
+  provider: lambda
+  function_name: sample-lambda
+  role: arn:aws:iam::583763756569:role/lambda_basic_execution
+  handler_name: index.handler
+  access_key_id: AKIAJDCW7VJVH6ITDFAQ
+  secret_access_key:
+    secure: s5vFmFbI0tqzQQzSt+6vbip29ir8qK4QP1zFcBwHcAStTsspVru44nnmII6TNb4stj7jIIsaz3vTmfb+ytf8IYPEfdE1vxnSGCcn+5JKPhwl/YjYuMcI8b5MWlTXp8sT8NbjXkvIVdrbVz7N5bAfQBCNfUo5cXZdNsBuOwui5fqgPxSrklKHPLwWHWyvDgXCB3k3S//I0tj4sUI22ruDe6tAGYxZb4PCTQr/dxFD2YVUJPBUh8aTCicvlNcErDGzHkc9ablWpQTfsbofdMgHetggCY2NprQkEHw4M5lFauL4EZnaV+qrD1z3k7DvdYQ7+Awr1xvKO8Z2pWJe1MSfWNoegZOA1Jb5fZfzBcFzg6j+nnzU34U4SGoEE4W1hIscmRY0Vl+FcJgSeLla4SrnJKi0aamPfHkOVtB4E/gfT0gJwdxYk3FcLlStj7eJLluKYuSIhfWIqN1YpFcnk1Ra4t4Af9dKAe5J2WPP5hqaelhzf4AcgSMyz00YEAPZhPRcNeKl1JUc5w9HW2Nxg7RHvWiQs/rXJQkM/XyjNYsn3IGyyjVoEo2EOvKRiZfEpF4JbCQEMwtbLi/OOl0tu3+T44SvTdYZCCA9JHbJUsqFzapJXK8U4OPuzSq0wAIJYZuzko+TZOYiMFPAhR89K4CY+tYdJ/365hUFe7W5KJDxSk0=
