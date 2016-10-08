@@ -5,7 +5,9 @@
   "main": "sample-lambda.js",
   "dependencies": {
     "bluebird": "^3.4.1",
+    "chai": "^3.5.0",
     "jquery": "^2.2.3",
+    "mocha": "^3.0.2",
     "request": "^2.72.0",
     "xmldom": "^0.1.22"
   },
@@ -31,11 +33,11 @@
     "npm": "^2.8.3"
   },
   "scripts": {
-    "test": "test"
+    "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/n/a.git"
+    "url": "https://github.com/brianwaustin/serverless-microservice-aws-lambda"
   },
   "keywords": [
     "decode",
@@ -44,7 +46,7 @@
   "author": "Brian Austin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/n/a/issues"
+    "url": "https://github.com/brianwaustin/serverless-microservice-aws-lambda/issues"
   },
-  "homepage": "https://github.com/n/a#readme"
+  "homepage": "https://github.com/brianwaustin/serverless-microservice-aws-lambda/blob/master/README.md"
 }

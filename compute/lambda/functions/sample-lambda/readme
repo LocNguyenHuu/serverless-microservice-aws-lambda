@@ -1,6 +1,6 @@
 ============================================
 Name: sample-lambda
-Description: 
+Description:
   The sample-lambda function returns a mock
   object for use when setting up API Gateway
   methods.
@@ -19,3 +19,15 @@ npm install -g lambda-local@0.0.9
 Execute lambda via command line
 -----
 lambda-local  -l sample-lambda.js -e event.json
+
+
+-----
+Execute Tests
+-----
+npm test
+
+/*
+See also:
+  https://semaphoreci.com/community/tutorials/getting-started-with-node-js-and-mocha
+  https://semaphoreci.com/community/tutorials/setting-up-an-end-to-end-testing-workflow-with-gulp-mocha-and-webdriverio
+*/
